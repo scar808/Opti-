@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        font-family: sans-serif;
+        margin: 0px;
+    }
+    body {
+        background-color: #88edcc;
+    }
+    nav {
+        background-color:#6ec0a5;
+    }
+    #Logo {
+        max-width: 75px;
+    }
+    #hom  {
+        background-color: #88edcc;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        color: black;
+        text-decoration: none;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    .lgs {
+        max-width: 100px;
+    }
+    .gro {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #badou {
+        font-weight: bold;
+    }
+    #pdfile {
+        margin: 15px;
+    }
+    #batata { 
+        width: 50 px; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 15px;
+    }
+    button {
+        padding: 5px;
+        border-radius: 5px;
+        border: 0px;
+        background-color: #6ec0a5;
+        color: rgb(0, 0, 0);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+</style>
+<body>
+    <nav>
+        <table width="100%">
+            <tr>
+                <td><img src="./wheat.png" alt="" id="Logo"></td>
+                <td><a href="Home.html">Home</a></td>
+                <td><a href="Historique.html" id="hom">Historique</a></td>
+            </tr>
+        </table>
+    </nav>
+    <div id="pdfile">
+        <h1>Distribution</h1>
+        <table border="1" width="100%">
+            <tr id="badou">
+                <td width="12.5%">Nom</td>
+                <td width="12.5%">Logo</td>
+                <td width="12.5%">Quota</td>
+                <td width="12.5%">Date de réception</td>
+                <td width="12.5%">Quantité reçue</td>
+                <td width="12.5%">controle</td>
+                <td width="12.5%">Raison</td>
+            </tr>
+            <tr>
+                <td id="bagou">Bagou</td>
+                <td class="gro"><img src="./Bagou.png" alt="Bagou" class="lgs"></td>
+                <td>2.5 Tonnes</td>
+                <td>11/11</td>
+                <td>3 tonnes</td>
+                <td>à controler</td>
+                <td>>Quota</td>
+            </tr>
+            <tr>
+                <td id="dag">Dag</td>
+                <td class="gro"><img src="./Dag.png" alt="Dag" class="lgs"></td>
+                <td>3 Tonnes</td>
+                <td>1/11</td>
+                <td>3 tonnes</td>
+                <td>pas besoin</td>
+                <td>=Quota</td>
+            </tr>
+            <tr>
+                <td id="kob">Kob</td>
+                <td class="gro"><img src="./kob.png" alt="kob" class="lgs"></td>
+                <td>3 Tonnes</td>
+                <td>21/11</td>
+                <td>3 tonnes</td>
+                <td>pas besoin</td>
+                <td>Correct</td>
+            </tr>
+        </table>
+        <div id="batata">
+            <button id="myButton">Hide Paragraph</button>
+        </div>
+        <div id="newParagraph" style="display:none;"></div>
+    </div>
+    <script>
+        const handleClick = (id, message) => {
+            document.getElementById(id).onclick = function() {
+                // Create a new paragraph element
+                var newParagraph = document.createElement("p");
+                newParagraph.textContent = message;
+                document.getElementById("newParagraph").appendChild(newParagraph);
+                document.getElementById("newParagraph").style.display = "block"; // Show the paragraph
+            };
+        };
+
+        handleClick("bagou", "Bagou is a bakery. Reports say that it's receiving more than the quantity it should get.");
+        handleClick("dag", "Dag is another bakery. Reports show it is meeting its exact quota.");
+        handleClick("kob", "Kob is a bakery. Reports confirm that everything is correct.");
+
+        document.getElementById("myButton").onclick = function() {
+            var paragraph = document.getElementById("newParagraph");
+            paragraph.style.display = "none"; // Hide the paragraph
+            paragraph.innerHTML = ""; // Clear the content
+        };
+    </script>
+</body>
+</html>
